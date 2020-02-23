@@ -1,22 +1,22 @@
-.container {
-  margin: 0 auto;
-  max-width: 500px;
-  height: 100vh;
-}
 .head {
   background-color: #2196f3;
   color: white;
   padding: 10px 12px;
   text-align: center;
+  font-weight: 600;
 }
+
 .yarn-select {
   display: flex;
   justify-content: space-around;
   margin-top: 10px;
   margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 700;
 }
 .yarn-select-radio {
   display: flex;
+  align-items: center;
 }
 .yarn-select-header {
   flex: 0.4;
@@ -39,4 +39,35 @@ button {
 }
 .items-color {
   flex: 0.6;
+}
+table {
+  width: 100%;
+  padding-left: 0.5rem;
+  font-size: 16px;
+  font-weight: 600;
+}
+input[type="radio"] {
+  -ms-transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
+  margin-right: 10px;
+}
+.mobNo {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 21px;
+  font-weight: 600;
+}
+.whatsapp-img {
+  height: 20px;
+  cursor: pointer;
+}
+.send-order-btn {
+  border: none;
+  padding: 10px 12px;
+  background: #2196f3;
+  color: white;
+  border-radius: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
 }
