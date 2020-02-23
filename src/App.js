@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import whatsapp from "./icons/whatsapp-icon.png";
 
+
 class App extends Component {
   state = {
     selectedStar: "3 star",
@@ -141,6 +142,7 @@ class App extends Component {
     ]
   };
 
+
   onAddYarn = (index, pos) => {
     let { yarnList } = this.state;
     if (yarnList[index] && yarnList[index][pos]) {
@@ -196,7 +198,7 @@ class App extends Component {
   };
 
   render() {
-    let { yarnList } = this.state;
+    let { yarnList, selectedStar } = this.state;
     return (
       <div>
         <header className="head">JAY JALARAM YARN</header>
@@ -213,7 +215,7 @@ class App extends Component {
               id="rd1"
               value="3 star"
               onChange={this.onChange}
-              checked={this.state.selectedStar === "3 star"}
+              checked={selectedStar === "3 star"}
             />
             <div className="pl-2">3 Star</div>
           </div>
@@ -224,7 +226,7 @@ class App extends Component {
               id="rd2"
               value="5 star"
               onChange={this.onChange}
-              checked={this.state.selectedStar === "5 star"}
+              checked={selectedStar === "5 star"}
             />
             <div className="pl-2">5 Star</div>
           </div>
