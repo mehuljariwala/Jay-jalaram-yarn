@@ -259,14 +259,16 @@ class App extends Component {
               ))}
           </tbody>
         </table>
-        <div style={{ textAlign: "center", marginTop: "50px" }}>
-          <input
-            type="button"
-            value="Send Order"
+        <div className="footer-button">
+          <button
+            value="Send"
             name="Submit"
             onClick={this.onSendOrder}
             className="send-order-btn"
-          />
+          >
+            <img src={whatsapp} alt="whatsapp" className="whatsapp-img" />
+            <div className="send-text">Send</div>
+          </button>
         </div>
       </div>
     );

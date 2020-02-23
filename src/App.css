@@ -64,10 +64,22 @@ input[type="radio"] {
 }
 .send-order-btn {
   border: none;
-  padding: 10px 12px;
-  background: #2196f3;
-  color: white;
+  padding: 5px 16px;
+  background: white;
+  color: black;
+  border: 2px solid green;
   border-radius: 15px;
   font-weight: 600;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+.footer-button {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.send-text {
+  padding-left: 5px;
 }
