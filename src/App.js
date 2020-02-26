@@ -1,147 +1,180 @@
 import React, { Component } from "react";
 import "./App.css";
 import whatsapp from "./icons/whatsapp-icon.png";
-
+import Next from "./icons/next.png";
+import Reset from "./icons/reset.png";
 
 class App extends Component {
   state = {
-    selectedStar: "3 star",
+    selectedStar: null,
     yarnList: [
       {
         left: {
           uid: 1,
-          yarn_color: "Red",
+          yarn_color: "RED",
           yarn_qty: 0
         },
         right: {
-          uid: 12,
-          yarn_color: "Black",
+          uid: 13,
+          yarn_color: "BLACK",
           yarn_qty: 0
         }
       },
       {
         left: {
           uid: 2,
-          yarn_color: "Rani",
+          yarn_color: "RANI",
           yarn_qty: 0
         },
         right: {
-          uid: 13,
-          yarn_color: "Marun",
+          uid: 14,
+          yarn_color: "MAHROOM",
           yarn_qty: 0
         }
       },
       {
         left: {
           uid: 3,
-          yarn_color: "R.Blue",
+          yarn_color: "R-BLUE",
           yarn_qty: 0
         },
         right: {
-          uid: 14,
-          yarn_color: "N.Blue",
+          uid: 15,
+          yarn_color: "N-Blue",
           yarn_qty: 0
         }
       },
       {
         left: {
           uid: 4,
-          yarn_color: "Green",
+          yarn_color: "GREEN",
           yarn_qty: 0
         },
         right: {
-          uid: 15,
-          yarn_color: "Chiku",
+          uid: 16,
+          yarn_color: "CHIKU",
           yarn_qty: 0
         }
       },
       {
         left: {
           uid: 5,
-          yarn_color: "Orange",
+          yarn_color: "ORANGE",
           yarn_qty: 0
         },
         right: {
-          uid: 16,
-          yarn_color: "Multy",
+          uid: 17,
+          yarn_color: "MULTY",
           yarn_qty: 0
         }
       },
       {
         left: {
           uid: 6,
-          yarn_color: "Jambali",
+          yarn_color: "JAMBALI",
           yarn_qty: 0
         },
         right: {
-          uid: 17,
-          yarn_color: "Pink",
+          uid: 18,
+          yarn_color: "B-CREAM",
           yarn_qty: 0
         }
       },
       {
         left: {
           uid: 7,
-          yarn_color: "Rani",
+          yarn_color: "MAJENTA",
           yarn_qty: 0
         },
         right: {
-          uid: 18,
-          yarn_color: "C-Green",
+          uid: 19,
+          yarn_color: "WHITE",
           yarn_qty: 0
         }
       },
       {
         left: {
           uid: 8,
-          yarn_color: "Majanta",
+          yarn_color: "FIROZI",
           yarn_qty: 0
         },
         right: {
-          uid: 19,
-          yarn_color: "White",
+          uid: 20,
+          yarn_color: "PINK",
           yarn_qty: 0
         }
       },
       {
         left: {
           uid: 9,
-          yarn_color: "Firozi",
+          yarn_color: "RAMA",
           yarn_qty: 0
         },
         right: {
-          uid: 20,
-          yarn_color: "B Green",
+          uid: 21,
+          yarn_color: "C-GREEN",
           yarn_qty: 0
         }
       },
       {
         left: {
           uid: 10,
-          yarn_color: "Rama",
+          yarn_color: "GOLDEN",
           yarn_qty: 0
         },
         right: {
-          uid: 21,
-          yarn_color: "Yellow",
+          uid: 22,
+          yarn_color: "WINE",
           yarn_qty: 0
         }
       },
       {
         left: {
           uid: 11,
-          yarn_color: "Golden",
+          yarn_color: "PEROT",
           yarn_qty: 0
         },
         right: {
-          uid: 22,
-          yarn_color: "Cyan",
+          uid: 23,
+          yarn_color: "B-GREEN",
+          yarn_qty: 0
+        }
+      },
+      {
+        left: {
+          uid: 12,
+          yarn_color: "GAJARI",
+          yarn_qty: 0
+        },
+        right: {
+          uid: 24,
+          yarn_color: "COFEE",
+          yarn_qty: 0
+        }
+      },
+      {
+        right: {
+          uid: 25,
+          yarn_color: "GREY",
+          yarn_qty: 0
+        }
+      },
+      {
+        right: {
+          uid: 26,
+          yarn_color: "PISTA",
+          yarn_qty: 0
+        }
+      },
+      {
+        right: {
+          uid: 27,
+          yarn_color: "PITCH",
           yarn_qty: 0
         }
       }
     ]
   };
-
 
   onAddYarn = (index, pos) => {
     let { yarnList } = this.state;
@@ -163,8 +196,8 @@ class App extends Component {
     this.setState({ yarnList });
   };
 
-  onChange = e => {
-    this.setState({ selectedStar: e.target.value });
+  onChange = value => {
+    this.setState({ selectedStar: value });
   };
 
   onSendOrder = () => {
@@ -193,6 +226,16 @@ class App extends Component {
     );
   };
 
+  onResetOrder = () => {
+    let { yarnList } = this.state;
+    yarnList.map(yarn => {
+      if (yarn.left && yarn.left.yarn_qty > 0) yarn.left.yarn_qty = 0;
+      if (yarn.right && yarn.right.yarn_qty > 0) yarn.right.yarn_qty = 0;
+      return null;
+    });
+    this.setState({ yarnList });
+  };
+
   redirectToWhatsapp = () => {
     window.open(`https://api.whatsapp.com/send?phone=+919998478787`, "_blank");
   };
@@ -201,14 +244,35 @@ class App extends Component {
     let { yarnList, selectedStar } = this.state;
     return (
       <div>
-        <header className="head">JAY JALARAM YARN</header>
+        <header className="head">JAY JALARAM JARI</header>
         <div className="mobNo" onClick={this.redirectToWhatsapp}>
           <img src={whatsapp} alt="whatsapp" className="whatsapp-img" />
           9998478787
         </div>
         <div className="yarn-select">
-          <div className="yarn-select-header">Select Star : </div>
-          <div className="yarn-select-radio">
+          <img src={Next} alt="Select" width="35" />
+          <div
+            className={`${
+              selectedStar && selectedStar === "3 Star"
+                ? "yarn-selected"
+                : "yarn-unselected"
+            }`}
+            onClick={() => this.onChange("3 Star")}
+          >
+            3 TAR
+          </div>
+          <div
+            className={`${
+              selectedStar && selectedStar === "5 Star"
+                ? "yarn-selected"
+                : "yarn-unselected"
+            }`}
+            onClick={() => this.onChange("5 Star")}
+          >
+            5 TAR
+          </div>
+
+          {/* <div className="yarn-select-radio">
             <input
               type="radio"
               name="rd"
@@ -229,23 +293,30 @@ class App extends Component {
               checked={selectedStar === "5 star"}
             />
             <div className="pl-2">5 Star</div>
-          </div>
+          </div> */}
         </div>
 
         <table className="table">
           <tbody>
             {yarnList &&
+              this.state.selectedStar &&
               yarnList.map((data, index) => (
                 <tr key={index}>
-                  <td>{data.left.yarn_color}</td>
-                  <td>{data.left.yarn_qty}</td>
+                  <td>{data.left && data.left.yarn_color}</td>
+                  <td>{data.left && data.left.yarn_qty}</td>
                   <td>
-                    <button onClick={() => this.onRemoveYarn(index, "left")}>
-                      <i className="fa fa-minus" aria-hidden="true"></i>
-                    </button>
-                    <button onClick={() => this.onAddYarn(index, "left")}>
-                      <i className="fa fa-plus" aria-hidden="true"></i>
-                    </button>
+                    {data.left && (
+                      <>
+                        <button
+                          onClick={() => this.onRemoveYarn(index, "left")}
+                        >
+                          <i className="fa fa-minus" aria-hidden="true"></i>
+                        </button>
+                        <button onClick={() => this.onAddYarn(index, "left")}>
+                          <i className="fa fa-plus" aria-hidden="true"></i>
+                        </button>
+                      </>
+                    )}
                   </td>
                   <td>{data.right.yarn_color}</td>
                   <td>{data.right.yarn_qty}</td>
@@ -261,17 +332,31 @@ class App extends Component {
               ))}
           </tbody>
         </table>
-        <div className="footer-button">
-          <button
-            value="Send"
-            name="Submit"
-            onClick={this.onSendOrder}
-            className="send-order-btn"
-          >
-            <img src={whatsapp} alt="whatsapp" className="whatsapp-img" />
-            <div className="send-text">Send</div>
-          </button>
-        </div>
+        {this.state.selectedStar && (
+          <div className="footer-button">
+            <button
+              value="Reset"
+              name="Reset"
+              onClick={this.onResetOrder}
+              className="btn reset-order-btn"
+            >
+              <img src={Reset} alt="reset" className="whatsapp-img" />
+              <div className="send-text">Reset</div>
+            </button>
+            <button
+              value="Send"
+              name="Submit"
+              onClick={this.onSendOrder}
+              className="btn send-order-btn"
+            >
+              <img src={whatsapp} alt="whatsapp" className="whatsapp-img" />
+              <div className="send-text">Send</div>
+            </button>
+          </div>
+        )}
+        {/* <footer>
+          <p>Developed by : 8866669302</p>
+        </footer> */}
       </div>
     );
   }

@@ -1,18 +1,31 @@
 .head {
-  background-color: #2196f3;
-  color: white;
+  color: #f44336;
   padding: 10px 12px;
   text-align: center;
-  font-weight: 600;
+  font-weight: 900;
+  font-size: 20px;
 }
 
 .yarn-select {
   display: flex;
-  justify-content: space-around;
-  margin-top: 10px;
+  justify-content: space-evenly;
+  margin-top: 5px;
   margin-bottom: 10px;
   font-size: 16px;
   font-weight: 700;
+}
+.yarn-selected {
+  background: #2196f3;
+  padding: 6px;
+  border-radius: 3px;
+  color: white;
+}
+.yarn-unselected {
+  background: white;
+  padding: 6px;
+  border-radius: 3px;
+
+  border: 1px solid #2196f3;
 }
 .yarn-select-radio {
   display: flex;
@@ -46,6 +59,10 @@ table {
   font-size: 16px;
   font-weight: 600;
 }
+table tbody {
+  color: #673ab7;
+  font-weight: 700;
+}
 input[type="radio"] {
   -ms-transform: scale(1.5);
   -webkit-transform: scale(1.5);
@@ -54,7 +71,7 @@ input[type="radio"] {
 }
 .mobNo {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   margin-right: 21px;
   font-weight: 600;
 }
@@ -62,18 +79,24 @@ input[type="radio"] {
   height: 20px;
   cursor: pointer;
 }
-.send-order-btn {
+.btn {
   border: none;
   padding: 5px 16px;
   background: white;
   color: black;
-  border: 2px solid green;
-  border-radius: 15px;
+  border-radius: 9px;
   font-weight: 600;
   text-transform: uppercase;
   display: flex;
   align-items: center;
 }
+.send-order-btn {
+  border: 2px solid green;
+}
+.reset-order-btn {
+  border: 2px solid #2196f3;
+}
+
 .footer-button {
   margin-top: 20px;
   display: flex;
@@ -82,4 +105,12 @@ input[type="radio"] {
 }
 .send-text {
   padding-left: 5px;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+}
+p {
+  margin: 0;
+  padding: 0;
 }
