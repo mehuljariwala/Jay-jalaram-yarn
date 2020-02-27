@@ -206,8 +206,9 @@ class App extends Component {
     let whatsappMessage = "";
     whatsappMessage += `${selectedStar.toUpperCase()}%0A%0A`;
     yarnList.map(yarn => {
-      if (yarn.left.yarn_qty > 0) selectedColors.push(yarn.left);
-      if (yarn.right.yarn_qty > 0) selectedColors.push(yarn.right);
+      if (yarn.left && yarn.left.yarn_qty > 0) selectedColors.push(yarn.left);
+      if (yarn.right && yarn.right.yarn_qty > 0)
+        selectedColors.push(yarn.right);
       return null;
     });
     selectedColors
