@@ -3,6 +3,7 @@ import "./App.css";
 import whatsapp from "./icons/whatsapp-icon.png";
 import Next from "./icons/next.png";
 import Reset from "./icons/reset.png";
+import { TableRow } from "./components/Row/TableRow";
 
 class App extends Component {
   state = {
@@ -272,29 +273,6 @@ class App extends Component {
           >
             5 TAR
           </div>
-
-          {/* <div className="yarn-select-radio">
-            <input
-              type="radio"
-              name="rd"
-              id="rd1"
-              value="3 star"
-              onChange={this.onChange}
-              checked={selectedStar === "3 star"}
-            />
-            <div className="pl-2">3 Star</div>
-          </div>
-          <div className="yarn-select-radio">
-            <input
-              type="radio"
-              name="rd"
-              id="rd2"
-              value="5 star"
-              onChange={this.onChange}
-              checked={selectedStar === "5 star"}
-            />
-            <div className="pl-2">5 Star</div>
-          </div> */}
         </div>
 
         <table className="table">
@@ -302,34 +280,7 @@ class App extends Component {
             {yarnList &&
               this.state.selectedStar &&
               yarnList.map((data, index) => (
-                <tr key={index}>
-                  <td>{data.left && data.left.yarn_color}</td>
-                  <td>{data.left && data.left.yarn_qty}</td>
-                  <td>
-                    {data.left && (
-                      <>
-                        <button
-                          onClick={() => this.onRemoveYarn(index, "left")}
-                        >
-                          <i className="fa fa-minus" aria-hidden="true"></i>
-                        </button>
-                        <button onClick={() => this.onAddYarn(index, "left")}>
-                          <i className="fa fa-plus" aria-hidden="true"></i>
-                        </button>
-                      </>
-                    )}
-                  </td>
-                  <td>{data.right.yarn_color}</td>
-                  <td>{data.right.yarn_qty}</td>
-                  <td>
-                    <button onClick={() => this.onRemoveYarn(index, "right")}>
-                      <i className="fa fa-minus" aria-hidden="true"></i>
-                    </button>
-                    <button onClick={() => this.onAddYarn(index, "right")}>
-                      <i className="fa fa-plus" aria-hidden="true"></i>
-                    </button>
-                  </td>
-                </tr>
+                <TableRow data={data} index={index} />
               ))}
           </tbody>
         </table>
