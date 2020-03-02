@@ -249,7 +249,6 @@ class App extends Component {
     this.setState({ yarnList });
   };
 
-
   render() {
     let { yarnList, selectedStar } = this.state;
     return (
@@ -279,18 +278,25 @@ class App extends Component {
         </div>
 
         <table className="table">
-          <tbody>
-            {yarnList &&
-              this.state.selectedStar &&
-              yarnList.map((data, index) => (
-                <TableRow
-                  data={data}
-                  index={index}
-                  onRemoveYarn={this.onRemoveYarn}
-                  onAddYarn={this.onAddYarn}
-                />
-              ))}
-          </tbody>
+          {selectedStar ? (
+            <tbody>
+              {yarnList &&
+                yarnList.map((data, index) => (
+                  <TableRow
+                    data={data}
+                    index={index}
+                    onRemoveYarn={this.onRemoveYarn}
+                    onAddYarn={this.onAddYarn}
+                  />
+                ))}
+            </tbody>
+          ) : (
+            <tbody>
+              <tr>
+                <div className="please-msg">Please Click on TAR</div>
+              </tr>
+            </tbody>
+          )}
         </table>
         {this.state.selectedStar && (
           <div className="footer-button">
