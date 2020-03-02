@@ -5,7 +5,6 @@ import Next from "./icons/next.png";
 import Reset from "./icons/reset.png";
 import { TableRow } from "./components/Row/TableRow";
 
-
 class App extends Component {
   state = {
     selectedStar: null,
@@ -289,7 +288,12 @@ class App extends Component {
             {yarnList &&
               this.state.selectedStar &&
               yarnList.map((data, index) => (
-                <TableRow data={data} index={index} />
+                <TableRow
+                  data={data}
+                  index={index}
+                  onRemoveYarn={this.onRemoveYarn}
+                  onAddYarn={this.onAddYarn}
+                />
               ))}
           </tbody>
         </table>
