@@ -5,6 +5,7 @@ import Next from "./icons/next.png";
 import Reset from "./icons/reset.png";
 import { TableRow } from "./components/Row/TableRow";
 
+
 class App extends Component {
   state = {
     selectedStar: null,
@@ -29,7 +30,7 @@ class App extends Component {
         },
         right: {
           uid: 14,
-          yarn_color: "MAHROOM",
+          yarn_color: "MAHROON",
           yarn_qty: 0
         }
       },
@@ -177,6 +178,14 @@ class App extends Component {
     ]
   };
 
+  // componentDidMount() {
+  //   database.ref().on("value", snapShot => {
+  //     this.setState({
+  //       yarnList: snapShot.val().yarnData
+  //     });
+  //   });
+  // }
+
   onAddYarn = (index, pos) => {
     let { yarnList } = this.state;
     if (yarnList[index] && yarnList[index][pos]) {
@@ -255,21 +264,21 @@ class App extends Component {
           <img src={Next} alt="Select" width="35" />
           <div
             className={`${
-              selectedStar && selectedStar === "3 Star"
+              selectedStar && selectedStar === "3 TAR"
                 ? "yarn-selected"
                 : "yarn-unselected"
             }`}
-            onClick={() => this.onChange("3 Star")}
+            onClick={() => this.onChange("3 TAR")}
           >
             3 TAR
           </div>
           <div
             className={`${
-              selectedStar && selectedStar === "5 Star"
+              selectedStar && selectedStar === "5 TAR"
                 ? "yarn-selected"
                 : "yarn-unselected"
             }`}
-            onClick={() => this.onChange("5 Star")}
+            onClick={() => this.onChange("5 TAR")}
           >
             5 TAR
           </div>
