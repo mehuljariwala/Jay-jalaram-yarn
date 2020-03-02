@@ -1,7 +1,7 @@
 import React from "react";
 import "./AdminPage.css";
-import { Button, Checkbox, Form } from "semantic-ui-react";
-import { Header, Image, Table } from "semantic-ui-react";
+import { Button, Form } from "semantic-ui-react";
+import { Table } from "semantic-ui-react";
 import { Dropdown, Menu } from "semantic-ui-react";
 
 const options = [
