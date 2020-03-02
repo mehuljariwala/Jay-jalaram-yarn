@@ -1,19 +1,24 @@
 import React from "react";
 import AdminPage from "../container/AdminPage/AdminPage";
-// import UserPage from "../container/UserPage/UserPage";
 import App from "../App";
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import Header from "../components/Header/Header";
+import {
+  Route,
+  BrowserRouter as Router,
+  Switch,
+  Redirect
+} from "react-router-dom";
 export const Routes = () => {
   return (
-    <Router>
-      <Switch>
-        <Route path="/">
-          <App />
-        </Route>
-        <Route path="/home">
-          <AdminPage />
-        </Route>
-      </Switch>
-    </Router>
+    <React.Fragment>
+      <Header />
+      <Router>
+        <Switch>
+          <Route path="/Home" component={App} />
+          <Route path="/Admin" component={AdminPage} />
+          <Redirect from="/" to="/Home" />
+        </Switch>
+      </Router>
+    </React.Fragment>
   );
 };

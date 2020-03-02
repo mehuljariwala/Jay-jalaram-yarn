@@ -4,6 +4,7 @@ import whatsapp from "./icons/whatsapp-icon.png";
 import Next from "./icons/next.png";
 import Reset from "./icons/reset.png";
 import { TableRow } from "./components/Row/TableRow";
+// import { database } from "./firebase";
 
 class App extends Component {
   state = {
@@ -179,9 +180,11 @@ class App extends Component {
 
   // componentDidMount() {
   //   database.ref().on("value", snapShot => {
-  //     this.setState({
-  //       yarnList: snapShot.val().yarnData
-  //     });
+  //     console.log("SSSS", snapShot.val().yarnData);
+  //     // this.setState({
+
+  //     //   yarnList: snapShot.val().yarnData
+  //     // });
   //   });
   // }
 
@@ -246,19 +249,11 @@ class App extends Component {
     this.setState({ yarnList });
   };
 
-  redirectToWhatsapp = () => {
-    window.open(`https://api.whatsapp.com/send?phone=+919998478787`, "_blank");
-  };
 
   render() {
     let { yarnList, selectedStar } = this.state;
     return (
       <div>
-        <header className="head">JAY JALARAM JARI</header>
-        <div className="mobNo" onClick={this.redirectToWhatsapp}>
-          <img src={whatsapp} alt="whatsapp" className="whatsapp-img" />
-          9998478787
-        </div>
         <div className="yarn-select">
           <img src={Next} alt="Select" width="35" />
           <div
