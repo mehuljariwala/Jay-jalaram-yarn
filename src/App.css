@@ -154,3 +154,9 @@ p {
     opacity: 1;
   }
 }
+
+@media screen and (device-aspect-ratio: 40/71) {
+  table {
+    font-size: 12px;
+  }
+}
