@@ -48,7 +48,7 @@ button {
 table {
   width: 100%;
   padding-left: 0.5rem;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
 }
 table tbody {
@@ -103,6 +103,46 @@ p {
   font-size: 18px;
   animation: blink 1s linear infinite;
 }
+.Footer__Container {
+  background: white;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+  border: solid 2px #e8e8e8;
+  width: 100vw;
+  height: 40px;
+  position: fixed;
+  z-index: 100;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  color: #f44336;
+  text-transform: uppercase;
+}
+.Footer_Btn {
+  flex-basis: 50%;
+  text-align: center;
+  font-family: unset;
+  font-weight: 600;
+  user-select: none;
+}
+.Footer_Btn_Left {
+  border-right: 1px solid #f44336;
+  color: #f44336 !important;
+  text-decoration: none;
+}
+.footer-icon-1 {
+  margin-right: 10px;
+}
+.footer-icon-1 g {
+  fill: #f44336;
+}
+.footer-icon-2 {
+  margin-right: 10px;
+}
+.Footer_None {
+  display: none;
+}
+
 @keyframes blink {
   0% {
     opacity: 0;

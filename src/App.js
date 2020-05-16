@@ -3,188 +3,188 @@ import "./App.css";
 import whatsapp from "./icons/whatsapp-icon.png";
 import Next from "./icons/next.png";
 import Reset from "./icons/reset.png";
+import { ReactComponent as CallUS } from "./icons/vintage.svg";
 import { TableRow } from "./components/Row/TableRow";
-// import { database } from "./firebase";
 
 class App extends Component {
-  state = {
-    selectedStar: null,
-    yarnList: [
-      {
-        left: {
-          uid: 1,
-          yarn_color: "RED",
-          yarn_qty: 0
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedStar: null,
+      yarnList: [
+        {
+          left: {
+            uid: 1,
+            yarn_color: "RED",
+            yarn_qty: 0,
+          },
+          right: {
+            uid: 13,
+            yarn_color: "BLACK",
+            yarn_qty: 0,
+          },
         },
-        right: {
-          uid: 13,
-          yarn_color: "BLACK",
-          yarn_qty: 0
-        }
-      },
-      {
-        left: {
-          uid: 2,
-          yarn_color: "RANI",
-          yarn_qty: 0
+        {
+          left: {
+            uid: 2,
+            yarn_color: "RANI",
+            yarn_qty: 0,
+          },
+          right: {
+            uid: 14,
+            yarn_color: "MAHROON",
+            yarn_qty: 0,
+          },
         },
-        right: {
-          uid: 14,
-          yarn_color: "MAHROON",
-          yarn_qty: 0
-        }
-      },
-      {
-        left: {
-          uid: 3,
-          yarn_color: "R-BLUE",
-          yarn_qty: 0
+        {
+          left: {
+            uid: 3,
+            yarn_color: "R-BLUE",
+            yarn_qty: 0,
+          },
+          right: {
+            uid: 15,
+            yarn_color: "N-Blue",
+            yarn_qty: 0,
+          },
         },
-        right: {
-          uid: 15,
-          yarn_color: "N-Blue",
-          yarn_qty: 0
-        }
-      },
-      {
-        left: {
-          uid: 4,
-          yarn_color: "GREEN",
-          yarn_qty: 0
+        {
+          left: {
+            uid: 4,
+            yarn_color: "GREEN",
+            yarn_qty: 0,
+          },
+          right: {
+            uid: 16,
+            yarn_color: "CHIKU",
+            yarn_qty: 0,
+          },
         },
-        right: {
-          uid: 16,
-          yarn_color: "CHIKU",
-          yarn_qty: 0
-        }
-      },
-      {
-        left: {
-          uid: 5,
-          yarn_color: "ORANGE",
-          yarn_qty: 0
+        {
+          left: {
+            uid: 5,
+            yarn_color: "ORANGE",
+            yarn_qty: 0,
+          },
+          right: {
+            uid: 17,
+            yarn_color: "MULTY",
+            yarn_qty: 0,
+          },
         },
-        right: {
-          uid: 17,
-          yarn_color: "MULTY",
-          yarn_qty: 0
-        }
-      },
-      {
-        left: {
-          uid: 6,
-          yarn_color: "JAMBALI",
-          yarn_qty: 0
+        {
+          left: {
+            uid: 6,
+            yarn_color: "JAMBALI",
+            yarn_qty: 0,
+          },
+          right: {
+            uid: 18,
+            yarn_color: "B-CREAM",
+            yarn_qty: 0,
+          },
         },
-        right: {
-          uid: 18,
-          yarn_color: "B-CREAM",
-          yarn_qty: 0
-        }
-      },
-      {
-        left: {
-          uid: 7,
-          yarn_color: "MAJENTA",
-          yarn_qty: 0
+        {
+          left: {
+            uid: 7,
+            yarn_color: "MAJENTA",
+            yarn_qty: 0,
+          },
+          right: {
+            uid: 19,
+            yarn_color: "WHITE",
+            yarn_qty: 0,
+          },
         },
-        right: {
-          uid: 19,
-          yarn_color: "WHITE",
-          yarn_qty: 0
-        }
-      },
-      {
-        left: {
-          uid: 8,
-          yarn_color: "FIROZI",
-          yarn_qty: 0
+        {
+          left: {
+            uid: 8,
+            yarn_color: "FIROZI",
+            yarn_qty: 0,
+          },
+          right: {
+            uid: 20,
+            yarn_color: "PINK",
+            yarn_qty: 0,
+          },
         },
-        right: {
-          uid: 20,
-          yarn_color: "PINK",
-          yarn_qty: 0
-        }
-      },
-      {
-        left: {
-          uid: 9,
-          yarn_color: "RAMA",
-          yarn_qty: 0
+        {
+          left: {
+            uid: 9,
+            yarn_color: "RAMA",
+            yarn_qty: 0,
+          },
+          right: {
+            uid: 21,
+            yarn_color: "C-GREEN",
+            yarn_qty: 0,
+          },
         },
-        right: {
-          uid: 21,
-          yarn_color: "C-GREEN",
-          yarn_qty: 0
-        }
-      },
-      {
-        left: {
-          uid: 10,
-          yarn_color: "GOLDEN",
-          yarn_qty: 0
+        {
+          left: {
+            uid: 10,
+            yarn_color: "GOLDEN",
+            yarn_qty: 0,
+          },
+          right: {
+            uid: 22,
+            yarn_color: "WINE",
+            yarn_qty: 0,
+          },
         },
-        right: {
-          uid: 22,
-          yarn_color: "WINE",
-          yarn_qty: 0
-        }
-      },
-      {
-        left: {
-          uid: 11,
-          yarn_color: "PEROT",
-          yarn_qty: 0
+        {
+          left: {
+            uid: 11,
+            yarn_color: "PEROT",
+            yarn_qty: 0,
+          },
+          right: {
+            uid: 23,
+            yarn_color: "B-GREEN",
+            yarn_qty: 0,
+          },
         },
-        right: {
-          uid: 23,
-          yarn_color: "B-GREEN",
-          yarn_qty: 0
-        }
-      },
-      {
-        left: {
-          uid: 12,
-          yarn_color: "GAJARI",
-          yarn_qty: 0
+        {
+          left: {
+            uid: 12,
+            yarn_color: "GAJARI",
+            yarn_qty: 0,
+          },
+          right: {
+            uid: 24,
+            yarn_color: "COFEE",
+            yarn_qty: 0,
+          },
         },
-        right: {
-          uid: 24,
-          yarn_color: "COFEE",
-          yarn_qty: 0
-        }
-      },
-      {
-        right: {
-          uid: 25,
-          yarn_color: "GREY",
-          yarn_qty: 0
-        }
-      },
-      {
-        right: {
-          uid: 26,
-          yarn_color: "PISTA",
-          yarn_qty: 0
-        }
-      },
-      {
-        right: {
-          uid: 27,
-          yarn_color: "PITCH",
-          yarn_qty: 0
-        }
-      }
-    ]
-  };
+        {
+          right: {
+            uid: 25,
+            yarn_color: "GREY",
+            yarn_qty: 0,
+          },
+        },
+        {
+          right: {
+            uid: 26,
+            yarn_color: "PISTA",
+            yarn_qty: 0,
+          },
+        },
+        {
+          right: {
+            uid: 27,
+            yarn_color: "PITCH",
+            yarn_qty: 0,
+          },
+        },
+      ],
+    };
+  }
 
-  // componentDidMount() {
-  //   database.ref().on("value", snapShot => {
-  //     console.log("SSSS", snapShot.val().yarnData);
-  //     // this.setState({
-
-  //     //   yarnList: snapShot.val().yarnData
-  //     // });
+  // async componentDidMount() {
+  //   let data = await getCollection("yarn_collections");
+  //   this.setState({
+  //     yarnList: JSON.parse(data.data().yarn_data)
   //   });
   // }
 
@@ -208,7 +208,7 @@ class App extends Component {
     this.setState({ yarnList });
   };
 
-  onChange = value => {
+  onChange = (value) => {
     this.setState({ selectedStar: value });
   };
 
@@ -217,7 +217,7 @@ class App extends Component {
     let selectedColors = [];
     let whatsappMessage = "";
     whatsappMessage += `${selectedStar.toUpperCase()}%0A%0A`;
-    yarnList.map(yarn => {
+    yarnList.map((yarn) => {
       if (yarn.left && yarn.left.yarn_qty > 0) selectedColors.push(yarn.left);
       if (yarn.right && yarn.right.yarn_qty > 0)
         selectedColors.push(yarn.right);
@@ -225,7 +225,7 @@ class App extends Component {
     });
     selectedColors
       .sort((a, b) => (a.uid > b.uid ? 1 : b.uid > a.uid ? -1 : 0))
-      .map(color => {
+      .map((color) => {
         whatsappMessage += `${color.yarn_color.padEnd(
           9,
           " "
@@ -241,12 +241,16 @@ class App extends Component {
 
   onResetOrder = () => {
     let { yarnList } = this.state;
-    yarnList.map(yarn => {
+    yarnList.map((yarn) => {
       if (yarn.left && yarn.left.yarn_qty > 0) yarn.left.yarn_qty = 0;
       if (yarn.right && yarn.right.yarn_qty > 0) yarn.right.yarn_qty = 0;
       return null;
     });
     this.setState({ yarnList });
+  };
+
+  redirectToWhatsapp = () => {
+    window.open(`https://api.whatsapp.com/send?phone=+919998478787`, "_blank");
   };
 
   render() {
@@ -320,9 +324,22 @@ class App extends Component {
             </button>
           </div>
         )}
-        {/* <footer>
-          <p>Developed by : 8866669302</p>
-        </footer> */}
+        <footer>
+          <div className={`${selectedStar ? "Footer_None" : "Footer__Container"}`}>
+            <a href="tel:+919998478787" className="Footer_Btn Footer_Btn_Left">
+              <CallUS height={20} width={20} className="footer-icon-1" />
+              <span>Call US</span>
+            </a>
+            <div className="Footer_Btn" onClick={this.redirectToWhatsapp}>
+              <img
+                src={whatsapp}
+                alt="whatsapp"
+                className="whatsapp-img footer-icon-2"
+              />
+              <span>WhatsApp</span>
+            </div>
+          </div>
+        </footer>
       </div>
     );
   }
