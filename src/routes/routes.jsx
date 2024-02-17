@@ -6,8 +6,9 @@ import {
   Route,
   BrowserRouter as Router,
   Switch,
-  Redirect
+  Redirect,
 } from "react-router-dom";
+
 export const Routes = () => {
   return (
     <React.Fragment>

@@ -5,6 +5,7 @@
   margin-bottom: 10px;
   font-size: 16px;
   font-weight: 700;
+  align-items: center;
 }
 .yarn-selected {
   background: #2196f3;
@@ -47,8 +48,8 @@ button {
 }
 table {
   width: 100%;
-  padding-left: 0.5rem;
-  font-size: 14px;
+  padding-left: 0.4rem;
+  font-size: 13.5px;
   font-weight: 600;
 }
 table tbody {
@@ -141,6 +142,22 @@ p {
 }
 .Footer_None {
   display: none;
+}
+
+.total-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.total-container .corn {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.total-container .qty {
+  font-size: 12px;
+  font-weight: bold;
 }
 
 @keyframes blink {
