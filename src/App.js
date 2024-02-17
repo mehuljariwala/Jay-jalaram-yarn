@@ -3,14 +3,14 @@ import "./App.css";
 import whatsapp from "./icons/whatsapp-icon.png";
 import Next from "./icons/next.png";
 import Reset from "./icons/reset.png";
-import { ReactComponent as CallUS } from "./icons/vintage.svg";
+// import { ReactComponent as CallUS } from "./icons/vintage.svg";
 import { TableRow } from "./components/Row/TableRow";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedStar: null,
+      selectedStar: "3 TAR",
       yarnList: [
         {
           left: {
@@ -19,7 +19,7 @@ class App extends Component {
             yarn_qty: 0,
           },
           right: {
-            uid: 13,
+            uid: 18,
             yarn_color: "BLACK",
             yarn_qty: 0,
           },
@@ -31,7 +31,7 @@ class App extends Component {
             yarn_qty: 0,
           },
           right: {
-            uid: 14,
+            uid: 19,
             yarn_color: "MAHROON",
             yarn_qty: 0,
           },
@@ -43,8 +43,8 @@ class App extends Component {
             yarn_qty: 0,
           },
           right: {
-            uid: 15,
-            yarn_color: "N-Blue",
+            uid: 20,
+            yarn_color: "GREY",
             yarn_qty: 0,
           },
         },
@@ -55,8 +55,8 @@ class App extends Component {
             yarn_qty: 0,
           },
           right: {
-            uid: 16,
-            yarn_color: "CHIKU",
+            uid: 21,
+            yarn_color: "B-CREAM",
             yarn_qty: 0,
           },
         },
@@ -67,8 +67,8 @@ class App extends Component {
             yarn_qty: 0,
           },
           right: {
-            uid: 17,
-            yarn_color: "MULTY",
+            uid: 22,
+            yarn_color: "PINK",
             yarn_qty: 0,
           },
         },
@@ -79,8 +79,8 @@ class App extends Component {
             yarn_qty: 0,
           },
           right: {
-            uid: 18,
-            yarn_color: "B-CREAM",
+            uid: 23,
+            yarn_color: "C GREEN(PL)",
             yarn_qty: 0,
           },
         },
@@ -91,8 +91,8 @@ class App extends Component {
             yarn_qty: 0,
           },
           right: {
-            uid: 19,
-            yarn_color: "WHITE",
+            uid: 24,
+            yarn_color: "WINE",
             yarn_qty: 0,
           },
         },
@@ -103,8 +103,8 @@ class App extends Component {
             yarn_qty: 0,
           },
           right: {
-            uid: 20,
-            yarn_color: "PINK",
+            uid: 25,
+            yarn_color: "B-GREEN",
             yarn_qty: 0,
           },
         },
@@ -115,8 +115,8 @@ class App extends Component {
             yarn_qty: 0,
           },
           right: {
-            uid: 21,
-            yarn_color: "C-GREEN",
+            uid: 26,
+            yarn_color: "COFEE",
             yarn_qty: 0,
           },
         },
@@ -127,8 +127,8 @@ class App extends Component {
             yarn_qty: 0,
           },
           right: {
-            uid: 22,
-            yarn_color: "WINE",
+            uid: 27,
+            yarn_color: "PISTA",
             yarn_qty: 0,
           },
         },
@@ -139,8 +139,8 @@ class App extends Component {
             yarn_qty: 0,
           },
           right: {
-            uid: 23,
-            yarn_color: "B-GREEN",
+            uid: 28,
+            yarn_color: "PITCH",
             yarn_qty: 0,
           },
         },
@@ -151,29 +151,75 @@ class App extends Component {
             yarn_qty: 0,
           },
           right: {
-            uid: 24,
-            yarn_color: "COFEE",
+            uid: 29,
+            yarn_color: "MAHENDI",
+            yarn_qty: 0,
+          },
+        },
+        {
+          left: {
+            uid: 13,
+            yarn_color: "N-BLUE",
+            yarn_qty: 0,
+          },
+          right: {
+            uid: 30,
+            yarn_color: "SKY",
+            yarn_qty: 0,
+          },
+        },
+        {
+          left: {
+            uid: 14,
+            yarn_color: "CHIKU",
+            yarn_qty: 0,
+          },
+          right: {
+            uid: 31,
+            yarn_color: "LOVENDER",
+            yarn_qty: 0,
+          },
+        },
+        {
+          left: {
+            uid: 15,
+            yarn_color: "C-GREEN(CT)",
+            yarn_qty: 0,
+          },
+          right: {
+            uid: 32,
+            yarn_color: "PETROL",
+            yarn_qty: 0,
+          },
+        },
+        {
+          left: {
+            uid: 16,
+            yarn_color: "WHITE",
+            yarn_qty: 0,
+          },
+          right: {
+            uid: 33,
+            yarn_color: "D MULTY",
+            yarn_qty: 0,
+          },
+        },
+        {
+          left: {
+            uid: 17,
+            yarn_color: "LI-GREEN",
+            yarn_qty: 0,
+          },
+          right: {
+            uid: 34,
+            yarn_color: "L MULTY",
             yarn_qty: 0,
           },
         },
         {
           right: {
-            uid: 25,
-            yarn_color: "GREY",
-            yarn_qty: 0,
-          },
-        },
-        {
-          right: {
-            uid: 26,
-            yarn_color: "PISTA",
-            yarn_qty: 0,
-          },
-        },
-        {
-          right: {
-            uid: 27,
-            yarn_color: "PITCH",
+            uid: 35,
+            yarn_color: "RANI MULTY",
             yarn_qty: 0,
           },
         },
@@ -325,9 +371,11 @@ class App extends Component {
           </div>
         )}
         <footer>
-          <div className={`${selectedStar ? "Footer_None" : "Footer__Container"}`}>
+          <div
+            className={`${selectedStar ? "Footer_None" : "Footer__Container"}`}
+          >
             <a href="tel:+919998478787" className="Footer_Btn Footer_Btn_Left">
-              <CallUS height={20} width={20} className="footer-icon-1" />
+              {/* <CallUS height={20} width={20} className="footer-icon-1" /> */}
               <span>Call US</span>
             </a>
             <div className="Footer_Btn" onClick={this.redirectToWhatsapp}>

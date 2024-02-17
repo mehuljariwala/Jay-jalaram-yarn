@@ -18,8 +18,8 @@ export function TableRow(props) {
           </React.Fragment>
         )}
       </td>
-      <td>{data.right.yarn_color}</td>
-      <td>{data.right.yarn_qty}</td>
+      <td>{data.right?.yarn_color}</td>
+      <td>{data.right?.yarn_qty}</td>
       <td>
         <button onClick={() => onRemoveYarn(index, "right")}>
           <i className="fa fa-minus" aria-hidden="true"></i>
