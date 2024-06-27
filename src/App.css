@@ -1,11 +1,12 @@
 .yarn-select {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   margin-top: 5px;
   margin-bottom: 10px;
   font-size: 16px;
   font-weight: 700;
   align-items: center;
+  padding: 0px 24px;
 }
 .yarn-selected {
   background: #2196f3;
@@ -101,8 +102,9 @@ p {
 .please-msg {
   margin-top: 30px;
   text-align: center;
-  font-size: 18px;
+  font-size: 22px;
   animation: blink 1s linear infinite;
+  margin-bottom: 16px;
 }
 .Footer__Container {
   background: white;
@@ -146,17 +148,18 @@ p {
 
 .total-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  gap: 16px;
 }
 
 .total-container .corn {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: bold;
 }
 
 .total-container .qty {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: bold;
 }
 
@@ -176,4 +179,38 @@ p {
   table {
     font-size: 12px;
   }
+}
+
+.app-choice {
+  text-align: center;
+}
+
+.app-choice-header {
+  background-color: #ffff;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.box {
+  width: 250px;
+  height: 150px;
+  background-color: #2196f3;
+  border: 2px solid gray;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  border-radius: 8px;
 }

@@ -4,9 +4,10 @@ import whatsapp from "./icons/whatsapp-icon.png";
 import Next from "./icons/next.png";
 import Reset from "./icons/reset.png";
 import { TableRow } from "./components/Row/TableRow";
+import Choice from "./Choice";
 
 const App = () => {
-  const [selectedStar, setSelectedStar] = useState("3 TAR");
+  const [selectedStar, setSelectedStar] = useState("");
   const [selectedColors, setSelectedColors] = useState([]);
   const [yarnList, setYarnList] = useState([
     {
@@ -278,7 +279,6 @@ const App = () => {
 
   const onChange = (value) => {
     setSelectedStar(value);
-    setSelectedColors([]);
   };
 
   const onResetOrder = () => {
@@ -303,36 +303,31 @@ const App = () => {
 
   return (
     <div>
-      <div className="yarn-select">
-        <img src={Next} alt="Select" width="25" height="25" />
-        <div
-          className={`${
-            selectedStar && selectedStar === "3 TAR"
-              ? "yarn-selected"
-              : "yarn-unselected"
-          }`}
-          onClick={() => onChange("3 TAR")}
-        >
-          3 TAR
-        </div>
-        <div
-          className={`${
-            selectedStar && selectedStar === "5 TAR"
-              ? "yarn-selected"
-              : "yarn-unselected"
-          }`}
-          onClick={() => onChange("5 TAR")}
-        >
-          5 TAR
-        </div>
-        <div className="total-container">
-          <div className="corn">
-            Colors:
-            {totalCorn}
+      {!selectedStar && (
+        <Choice
+          selectedStar={selectedStar}
+          onChange={onChange}
+          setSelectedStar={setSelectedStar}
+        />
+      )}
+
+      {selectedStar && (
+        <div className="yarn-select">
+          <button onClick={() => onChange("")}>
+            <svg viewBox="0 0 24 24" tabindex="-1" width={20} height={20}>
+              <path d="M21 11H6.83l3.58-3.59L9 6l-6 6 6 6 1.41-1.41L6.83 13H21z"></path>
+            </svg>
+          </button>
+
+          <div className="total-container">
+            <div className="corn">
+              Colors:
+              {totalCorn}
+            </div>
+            <div className="qty">Quantity: {totalQty}</div>
           </div>
-          <div className="qty">Quantity: {totalQty}</div>
         </div>
-      </div>
+      )}
 
       <table className="table">
         {selectedStar ? (
@@ -347,13 +342,7 @@ const App = () => {
               />
             ))}
           </tbody>
-        ) : (
-          <tbody>
-            <tr>
-              <div className="please-msg">Please Click on TAR</div>
-            </tr>
-          </tbody>
-        )}
+        ) : null}
       </table>
       {selectedStar && (
         <div className="footer-button">
