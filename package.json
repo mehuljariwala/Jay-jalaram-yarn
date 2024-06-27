@@ -17,8 +17,8 @@
     "uuid": "^3.4.0"
   },
   "scripts": {
-   "start": "react-scripts --openssl-legacy-provider start",
-    "build": "react-scripts build",
+    "start": "react-scripts --openssl-legacy-provider start",
+    "build": "react-scripts --openssl-legacy-provider  build",
     "test": "jest",
     "eject": "react-scripts eject"
   },
