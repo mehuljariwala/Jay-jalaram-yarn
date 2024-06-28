@@ -215,6 +215,11 @@ const App = () => {
       },
     },
     {
+      left: {
+        uid: 18,
+        yarn_color: "Onion",
+        yarn_qty: 0,
+      },
       right: {
         uid: 35,
         yarn_color: "RANI MULTY",
