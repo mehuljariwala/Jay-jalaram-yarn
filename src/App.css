@@ -148,9 +148,8 @@ p {
 
 .total-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  gap: 16px;
 }
 
 .total-container .corn {

@@ -324,6 +324,27 @@ const App = () => {
             </svg>
           </button>
 
+          <div
+            style={{
+              display: "flex",
+              background: "lightgray",
+              justifyContent: "center",
+              padding: "7px",
+              borderRadius: "8px",
+              fontWeight: "normal",
+            }}
+          >
+            SELECTED TAR:{"  "}
+            <span
+              style={{
+                fontWeight: "bold",
+                paddingLeft: "4px",
+              }}
+            >
+              {selectedStar}
+            </span>
+          </div>
+
           <div className="total-container">
             <div className="corn">
               Colors:
