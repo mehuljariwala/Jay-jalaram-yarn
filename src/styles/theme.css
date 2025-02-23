@@ -1,0 +1,157 @@
+:root {
+    /* Color Palette */
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --success-color: #2ecc71;
+    --warning-color: #f1c40f;
+    --danger-color: #e74c3c;
+
+    /* Background Colors */
+    --bg-primary: #f5f6fa;
+    --bg-secondary: #ffffff;
+    --bg-dark: #2c3e50;
+
+    /* Text Colors */
+    --text-primary: #2c3e50;
+    --text-secondary: #666666;
+    --text-light: #ffffff;
+    --text-muted: #95a5a6;
+
+    /* Border Colors */
+    --border-color: #e1e1e1;
+    --border-light: rgba(255, 255, 255, 0.1);
+
+    /* Shadow */
+    --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+    /* Spacing */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 30px;
+
+    /* Border Radius */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --border-radius-full: 9999px;
+}
+
+/* Common Button Styles */
+.btn {
+    padding: 8px 16px;
+    border-radius: var(--border-radius-md);
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+.btn-primary:hover {
+    background-color: #34495e;
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+}
+
+.btn-secondary:hover {
+    background-color: #2980b9;
+}
+
+.btn-success {
+    background-color: var(--success-color);
+    color: var(--text-light);
+}
+
+.btn-success:hover {
+    background-color: #27ae60;
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    color: var(--text-light);
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+}
+
+/* Common Card Styles */
+.card {
+    background-color: var(--bg-secondary);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    padding: var(--spacing-lg);
+}
+
+/* Common Input Styles */
+.input {
+    padding: var(--spacing-sm);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+}
+
+/* Common Table Styles */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+    text-align: left;
+}
+
+.table th {
+    background-color: var(--bg-primary);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Common Badge Styles */
+.badge {
+    padding: 4px 8px;
+    border-radius: var(--border-radius-full);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.badge-primary {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+.badge-secondary {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+}
+
+.badge-success {
+    background-color: var(--success-color);
+    color: var(--text-light);
+}
+
+.badge-danger {
+    background-color: var(--danger-color);
+    color: var(--text-light);
+}

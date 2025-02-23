@@ -1,27 +1,28 @@
 import React from "react";
+import { BrowserRouter, Routes as RouterRoutes, Route, Navigate } from "react-router-dom";
 import AdminPage from "../container/AdminPage/AdminPage";
+import AdminConfigPage from "../container/AdminConfigPage/AdminConfigPage";
+import DashboardContent from "../container/AdminConfigPage/components/DashboardContent";
+import UsersPage from "../container/UsersPage/UsersPage";
 import App from "../App";
-import Header from "../components/Header/Header";
-import {
-  Route,
-  BrowserRouter as Router,
-  Switch,
-  Redirect,
-} from "react-router-dom";
 import Choice from "../Choice";
 
 export const Routes = () => {
   return (
     <React.Fragment>
-      <Header />
-      <Router>
-        <Switch>
-          <Route path="/Home" component={App} />
-          <Route path="/Selection" component={Choice} />
-          <Route path="/Admin" component={AdminPage} />
-          <Redirect from="/" to="/Home" />
-        </Switch>
-      </Router>
+      <BrowserRouter>
+        <RouterRoutes>
+          <Route path="/Home" element={<App />} />
+          <Route path="/Selection" element={<Choice />} />
+          <Route path="/Admin" element={<AdminPage />} />
+          <Route path="/admin-config" element={<AdminConfigPage />}>
+            <Route index element={<Navigate to="dashboard" replace />} />
+            <Route path="dashboard" element={<DashboardContent />} />
+            <Route path="users" element={<UsersPage />} />
+          </Route>
+          <Route path="/" element={<Navigate to="/Home" replace />} />
+        </RouterRoutes>
+      </BrowserRouter>
     </React.Fragment>
   );
 };
