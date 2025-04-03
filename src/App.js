@@ -4,6 +4,7 @@ import whatsapp from "./icons/whatsapp-icon.png";
 import Reset from "./icons/reset.png";
 import { TableRow } from "./components/Row/TableRow";
 import Choice from "./Choice";
+import Header from "./components/Header/Header";
 
 const App = () => {
   const [selectedStar, setSelectedStar] = useState("");
@@ -306,39 +307,58 @@ const App = () => {
   );
 
   return (
-    <div className="app-container">
-      {!selectedStar && (
-        <Choice
-          selectedStar={selectedStar}
-          onChange={onChange}
-          setSelectedStar={setSelectedStar}
-        />
-      )}
+    <>
+      <Header />
+      <div>
+        {!selectedStar && (
+          <Choice
+            selectedStar={selectedStar}
+            onChange={onChange}
+            setSelectedStar={setSelectedStar}
+          />
+        )}
 
-      {selectedStar && (
-        <div>
+        {selectedStar && (
           <div className="yarn-select">
-            <button className="back-button" onClick={() => onChange("")}>
-              <svg viewBox="0 0 24 24" tabIndex="-1" width={20} height={20}>
-                <path
-                  d="M21 11H6.83l3.58-3.59L9 6l-6 6 6 6 1.41-1.41L6.83 13H21z"
-                  fill="#f44336"
-                ></path>
+            <button onClick={() => onChange("")}>
+              <svg viewBox="0 0 24 24" tabindex="-1" width={20} height={20}>
+                <path d="M21 11H6.83l3.58-3.59L9 6l-6 6 6 6 1.41-1.41L6.83 13H21z"></path>
               </svg>
             </button>
 
-            <div className="selected-tar">
-              <span>SELECTED TAR: </span>
-              <span className="selected-tar-value">{selectedStar}</span>
+            <div
+              style={{
+                display: "flex",
+                background: "lightgray",
+                justifyContent: "center",
+                padding: "7px",
+                borderRadius: "8px",
+                fontWeight: "normal",
+              }}
+            >
+              SELECTED TAR:{"  "}
+              <span
+                style={{
+                  fontWeight: "bold",
+                  paddingLeft: "4px",
+                }}
+              >
+                {selectedStar}
+              </span>
             </div>
 
             <div className="total-container">
-              <div className="corn">Colors: {totalCorn}</div>
+              <div className="corn">
+                Colors:
+                {totalCorn}
+              </div>
               <div className="qty">Quantity: {totalQty}</div>
             </div>
           </div>
+        )}
 
-          <table className="table">
+        <table className="table">
+          {selectedStar ? (
             <tbody>
               {yarnList.map((data, index) => (
                 <TableRow
@@ -350,39 +370,50 @@ const App = () => {
                 />
               ))}
             </tbody>
-          </table>
-
+          ) : null}
+        </table>
+        {selectedStar && (
           <div className="footer-button">
-            <button onClick={onResetOrder} className="btn reset-order-btn">
+            <button
+              value="Reset"
+              name="Reset"
+              onClick={onResetOrder}
+              className="btn reset-order-btn"
+            >
               <img src={Reset} alt="reset" className="whatsapp-img" />
               <div className="send-text">Reset</div>
             </button>
-            <button onClick={onSendOrder} className="btn send-order-btn">
+            <button
+              value="Send"
+              name="Submit"
+              onClick={onSendOrder}
+              className="btn send-order-btn"
+            >
               <img src={whatsapp} alt="whatsapp" className="whatsapp-img" />
               <div className="send-text">Send</div>
             </button>
           </div>
-        </div>
-      )}
-
-      <footer>
-        <div
-          className={`${selectedStar ? "Footer_None" : "Footer__Container"}`}
-        >
-          <a href="tel:+919998478787" className="Footer_Btn Footer_Btn_Left">
-            <span>Call US</span>
-          </a>
-          <div className="Footer_Btn" onClick={redirectToWhatsapp}>
-            <img
-              src={whatsapp}
-              alt="whatsapp"
-              className="whatsapp-img footer-icon-2"
-            />
-            <span>WhatsApp</span>
+        )}
+        <footer>
+          <div
+            className={`${selectedStar ? "Footer_None" : "Footer__Container"}`}
+          >
+            <a href="tel:+919998478787" className="Footer_Btn Footer_Btn_Left">
+              {/* <CallUS height={20} width={20} className="footer-icon-1" /> */}
+              <span>Call US</span>
+            </a>
+            <div className="Footer_Btn" onClick={redirectToWhatsapp}>
+              <img
+                src={whatsapp}
+                alt="whatsapp"
+                className="whatsapp-img footer-icon-2"
+              />
+              <span>WhatsApp</span>
+            </div>
           </div>
-        </div>
-      </footer>
-    </div>
+        </footer>
+      </div>
+    </>
   );
 };
 
