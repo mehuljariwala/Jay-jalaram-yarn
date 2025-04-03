@@ -30,20 +30,22 @@ export function TableRow(props) {
         {data.left && (
           <React.Fragment>
             <button
+              className="btn-action btn-minus"
               onClick={() => onRemoveYarn(index, "left")}
               onMouseDown={() => handleDecrementMouseDown(index, "left")}
               onMouseUp={handleMouseUp}
               onMouseLeave={handleMouseUp}
             >
-              <i className="fa fa-minus" aria-hidden="true"></i>
+              -
             </button>
             <button
+              className="btn-action btn-plus"
               onClick={() => onAddYarn(index, "left")}
               onMouseDown={() => handleIncrementMouseDown(index, "left")}
               onMouseUp={handleMouseUp}
               onMouseLeave={handleMouseUp}
             >
-              <i className="fa fa-plus" aria-hidden="true"></i>
+              +
             </button>
           </React.Fragment>
         )}
@@ -52,20 +54,22 @@ export function TableRow(props) {
       <td>{data.right?.yarn_qty}</td>
       <td>
         <button
+          className="btn-action btn-minus"
           onClick={() => onRemoveYarn(index, "right")}
           onMouseDown={() => handleDecrementMouseDown(index, "right")}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
         >
-          <i className="fa fa-minus" aria-hidden="true"></i>
+          -
         </button>
         <button
+          className="btn-action btn-plus"
           onClick={() => onAddYarn(index, "right")}
           onMouseDown={() => handleIncrementMouseDown(index, "right")}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
         >
-          <i className="fa fa-plus" aria-hidden="true"></i>
+          +
         </button>
       </td>
     </tr>
