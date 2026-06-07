@@ -92,8 +92,8 @@ const App = () => {
   const onResetOrder = () => {
     const resetYarnList = yarnList.map((yarn) => ({
       ...yarn,
-      left: { ...yarn.left, yarn_qty: 0 },
-      right: { ...yarn.right, yarn_qty: 0 },
+      left: yarn.left ? { ...yarn.left, yarn_qty: 0 } : null,
+      right: yarn.right ? { ...yarn.right, yarn_qty: 0 } : null,
     }));
     setYarnList(resetYarnList);
   };

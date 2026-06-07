@@ -75,6 +75,26 @@ export const createDefaultYarnList = () => [
     left: { uid: 18, yarn_color: "ONION", yarn_qty: 0 },
     right: { uid: 35, yarn_color: "RANI MULTY", yarn_qty: 0 },
   },
+  {
+    left: null,
+    right: { uid: 36, yarn_color: "AK MULTY", yarn_qty: 0 },
+  },
+  {
+    left: null,
+    right: { uid: 37, yarn_color: "MUSTARD", yarn_qty: 0 },
+  },
+  {
+    left: null,
+    right: { uid: 38, yarn_color: "RUST", yarn_qty: 0 },
+  },
+  {
+    left: null,
+    right: { uid: 39, yarn_color: "ELACHI", yarn_qty: 0 },
+  },
+  {
+    left: null,
+    right: { uid: 40, yarn_color: "PL RANI", yarn_qty: 0 },
+  },
 ];
 
 // Button colors — used for every Button category (3 / 5 / 6 TAR Button).
