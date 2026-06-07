@@ -4,17 +4,17 @@ export function TableRow(props) {
   const { data, index, onAddYarn, onRemoveYarn } = props;
   const [intervalId, setIntervalId] = useState(null);
 
-  const handleIncrementMouseDown = (index, pos) => {
+  const handleIncrementMouseDown = (i, pos) => {
     const id = setInterval(() => {
-      onAddYarn(index, pos);
-    }, 200); // Adjust the interval duration as needed
+      onAddYarn(i, pos);
+    }, 200);
     setIntervalId(id);
   };
 
-  const handleDecrementMouseDown = (index, pos) => {
+  const handleDecrementMouseDown = (i, pos) => {
     const id = setInterval(() => {
-      onRemoveYarn(index, pos);
-    }, 200); // Adjust the interval duration as needed
+      onRemoveYarn(i, pos);
+    }, 200);
     setIntervalId(id);
   };
 
@@ -22,56 +22,58 @@ export function TableRow(props) {
     clearInterval(intervalId);
   };
 
-  return (
-    <tr key={index}>
-      <td>{data.left && data.left.yarn_color}</td>
-      <td>{data.left && data.left.yarn_qty}</td>
-      <td>
-        {data.left && (
-          <React.Fragment>
+  const renderCell = (cell, pos) => {
+    if (!cell) {
+      return (
+        <>
+          <td className="cell-color" />
+          <td className="cell-stepper" />
+        </>
+      );
+    }
+
+    const active = cell.yarn_qty > 0;
+
+    return (
+      <>
+        <td className={`cell-color ${active ? "cell-color-active" : ""}`}>
+          {cell.yarn_color}
+        </td>
+        <td className="cell-stepper">
+          <div className="stepper">
             <button
-              className="btn-action btn-minus"
-              onClick={() => onRemoveYarn(index, "left")}
-              onMouseDown={() => handleDecrementMouseDown(index, "left")}
+              className="step-btn step-minus"
+              onClick={() => onRemoveYarn(index, pos)}
+              onMouseDown={() => handleDecrementMouseDown(index, pos)}
               onMouseUp={handleMouseUp}
               onMouseLeave={handleMouseUp}
+              aria-label={`Decrease ${cell.yarn_color}`}
             >
-              -
+              −
             </button>
+            <span className={`step-value ${active ? "step-value-active" : ""}`}>
+              {cell.yarn_qty}
+            </span>
             <button
-              className="btn-action btn-plus"
-              onClick={() => onAddYarn(index, "left")}
-              onMouseDown={() => handleIncrementMouseDown(index, "left")}
+              className="step-btn step-plus"
+              onClick={() => onAddYarn(index, pos)}
+              onMouseDown={() => handleIncrementMouseDown(index, pos)}
               onMouseUp={handleMouseUp}
               onMouseLeave={handleMouseUp}
+              aria-label={`Increase ${cell.yarn_color}`}
             >
               +
             </button>
-          </React.Fragment>
-        )}
-      </td>
-      <td>{data.right?.yarn_color}</td>
-      <td>{data.right?.yarn_qty}</td>
-      <td>
-        <button
-          className="btn-action btn-minus"
-          onClick={() => onRemoveYarn(index, "right")}
-          onMouseDown={() => handleDecrementMouseDown(index, "right")}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
-        >
-          -
-        </button>
-        <button
-          className="btn-action btn-plus"
-          onClick={() => onAddYarn(index, "right")}
-          onMouseDown={() => handleIncrementMouseDown(index, "right")}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
-        >
-          +
-        </button>
-      </td>
+          </div>
+        </td>
+      </>
+    );
+  };
+
+  return (
+    <tr>
+      {renderCell(data.left, "left")}
+      {renderCell(data.right, "right")}
     </tr>
   );
 }

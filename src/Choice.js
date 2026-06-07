@@ -1,95 +1,95 @@
 import React from "react";
 import "./App.css";
 
+const CATEGORIES = [
+  {
+    type: "Bullet",
+    accent: "bullet",
+    hint: "Bullet design sets",
+    options: [
+      { id: "3 TAR BULLET", number: "3" },
+      { id: "5 TAR BULLET", number: "5" },
+    ],
+  },
+  {
+    type: "Button",
+    accent: "button",
+    hint: "Button design sets",
+    options: [
+      { id: "3 TAR BUTTON", number: "3" },
+      { id: "5 TAR BUTTON", number: "5" },
+      { id: "6 TAR BUTTON", number: "6" },
+    ],
+  },
+  {
+    type: "Yarn",
+    accent: "yarn",
+    hint: "Plain yarn order",
+    options: [{ id: "YARN", number: null, label: "Yarn" }],
+  },
+];
+
+const CheckIcon = () => (
+  <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+    <path
+      d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+      fill="currentColor"
+    />
+  </svg>
+);
+
 const Choice = ({ selectedStar, onChange }) => {
   return (
     <div className="choice-container">
-      <div className="choice-background"></div>
-
       <div className="choice-header">
-        <div className="choice-title-wrapper">
-          <h1 className="choice-title">Select Your TAR</h1>
-          <div className="choice-title-underline"></div>
-        </div>
+        <h1 className="choice-title">Place Your Order</h1>
+        <p className="choice-intro">Pick a product type, then choose the TAR</p>
       </div>
 
-      <div className="choice-options">
-        <div
-          className={`choice-card ${
-            selectedStar === "3 TAR" ? "choice-card-selected" : ""
-          }`}
-          onClick={() => onChange("3 TAR")}
-        >
-          <div className="choice-card-shine"></div>
-          <div className="choice-card-content">
-            <div className="choice-card-icon">
-              <span>3</span>
-            </div>
-            <h2 className="choice-card-title">3 TAR</h2>
-
-            {selectedStar === "3 TAR" && (
-              <div className="choice-card-checkmark">
-                <svg viewBox="0 0 24 24" width="24" height="24">
-                  <path fill="none" d="M0 0h24v24H0z" />
-                  <path
-                    d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
-                    fill="currentColor"
-                  />
-                </svg>
+      <div className="choice-sections">
+        {CATEGORIES.map((cat) => (
+          <section
+            key={cat.type}
+            className={`choice-section choice-section-${cat.accent}`}
+          >
+            <div className="choice-section-head">
+              <span className="choice-section-chip">{cat.type.charAt(0)}</span>
+              <div className="choice-section-titles">
+                <h2 className="choice-section-title">{cat.type}</h2>
+                <span className="choice-section-hint">{cat.hint}</span>
               </div>
-            )}
-          </div>
-          <div className="choice-card-footer">
-            <span className="choice-card-select">Select</span>
-          </div>
-        </div>
-
-        <div
-          className={`choice-card ${
-            selectedStar === "5 TAR" ? "choice-card-selected" : ""
-          }`}
-          onClick={() => onChange("5 TAR")}
-        >
-          <div className="choice-card-shine"></div>
-          <div className="choice-card-content">
-            <div className="choice-card-icon choice-card-icon-premium">
-              <span>5</span>
             </div>
-            <h2 className="choice-card-title">5 TAR</h2>
-            {selectedStar === "5 TAR" && (
-              <div className="choice-card-checkmark">
-                <svg viewBox="0 0 24 24" width="24" height="24">
-                  <path fill="none" d="M0 0h24v24H0z" />
-                  <path
-                    d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </div>
-            )}
-          </div>
-          <div className="choice-card-footer">
-            <span className="choice-card-select">Select</span>
-          </div>
-        </div>
+
+            <div className="choice-section-grid">
+              {cat.options.map((opt) => {
+                const isSelected = selectedStar === opt.id;
+                return (
+                  <button
+                    key={opt.id}
+                    type="button"
+                    className={`tar-tile ${
+                      opt.number ? "" : "tar-tile-wide"
+                    } ${isSelected ? "tar-tile-selected" : ""}`}
+                    onClick={() => onChange(opt.id)}
+                  >
+                    {opt.number ? (
+                      <span className="tar-tile-main">
+                        <span className="tar-tile-num">{opt.number}</span>
+                        <span className="tar-tile-unit">TAR</span>
+                      </span>
+                    ) : (
+                      <span className="tar-tile-yarn-label">{opt.label}</span>
+                    )}
+                    <span className="tar-tile-go">
+                      {isSelected ? <CheckIcon /> : "Select"}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </section>
+        ))}
       </div>
-
-      {selectedStar && (
-        <div className="choice-selected-message">
-          <div className="choice-selected-icon">
-            <svg viewBox="0 0 24 24" width="24" height="24">
-              <path fill="none" d="M0 0h24v24H0z" />
-              <path
-                d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
-                fill="currentColor"
-              />
-            </svg>
-          </div>
-          <p>
-            You've selected <strong>{selectedStar}</strong>
-          </p>
-        </div>
-      )}
     </div>
   );
 };

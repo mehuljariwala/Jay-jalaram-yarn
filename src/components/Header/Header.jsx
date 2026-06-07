@@ -11,7 +11,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 10;
+      const isScrolled = window.scrollY > 8;
       if (isScrolled !== scrolled) {
         setScrolled(isScrolled);
       }
@@ -24,24 +24,23 @@ export default function Header() {
   }, [scrolled]);
 
   return (
-    <div className={`header-container ${scrolled ? "header-scrolled" : ""}`}>
-      <div className="header-row title-row">
-        <div className="header-logo-container">
-          <h1 className="header-title">
-            <span className="header-title-part">JAY</span>
-            <span className="header-title-part">JALARAM</span>
-            <span className="header-title-part">JARI</span>
-          </h1>
-          <div className="header-title-decoration"></div>
-        </div>
+    <header className={`header-bar ${scrolled ? "header-bar-scrolled" : ""}`}>
+      <div className="header-brand">
+        <span className="header-mark">JJ</span>
+        <span className="header-name">
+          JAY JALARAM <span className="header-name-accent">JARI</span>
+        </span>
       </div>
 
-      <div className="header-row contact-row">
-        <div className="header-contact" onClick={redirectToWhatsapp}>
-          <img src={whatsapp} alt="whatsapp" className="whatsapp-img" />
-          <span className="header-contact-value">+91 9998478787</span>
-        </div>
-      </div>
-    </div>
+      <button
+        type="button"
+        className="header-contact-btn"
+        onClick={redirectToWhatsapp}
+        aria-label="Contact on WhatsApp"
+      >
+        <img src={whatsapp} alt="" className="header-contact-icon" />
+        <span className="header-contact-num">99984 78787</span>
+      </button>
+    </header>
   );
 }
