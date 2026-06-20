@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 
+const RED_COLORS = ["D MULTY", "L MULTY", "RANI MULTY", "AK MULTY"];
+
 export function TableRow(props) {
   const { data, index, onAddYarn, onRemoveYarn } = props;
   const [intervalId, setIntervalId] = useState(null);
 
-  const handleIncrementMouseDown = (i, pos) => {
+  const handleIncrementMouseDown = (index, pos) => {
     const id = setInterval(() => {
-      onAddYarn(i, pos);
-    }, 200);
+      onAddYarn(index, pos);
+    }, 200); // Adjust the interval duration as needed
     setIntervalId(id);
   };
 
-  const handleDecrementMouseDown = (i, pos) => {
+  const handleDecrementMouseDown = (index, pos) => {
     const id = setInterval(() => {
-      onRemoveYarn(i, pos);
-    }, 200);
+      onRemoveYarn(index, pos);
+    }, 200); // Adjust the interval duration as needed
     setIntervalId(id);
   };
 
@@ -22,58 +24,60 @@ export function TableRow(props) {
     clearInterval(intervalId);
   };
 
-  const renderCell = (cell, pos) => {
-    if (!cell) {
-      return (
-        <>
-          <td className="cell-color" />
-          <td className="cell-stepper" />
-        </>
-      );
-    }
-
-    const active = cell.yarn_qty > 0;
-
-    return (
-      <>
-        <td className={`cell-color ${active ? "cell-color-active" : ""}`}>
-          {cell.yarn_color}
-        </td>
-        <td className="cell-stepper">
-          <div className="stepper">
+  return (
+    <tr key={index}>
+      <td className={data.left && RED_COLORS.includes(data.left.yarn_color) ? "text-red" : ""}>{data.left && data.left.yarn_color}</td>
+      <td>{data.left && data.left.yarn_qty}</td>
+      <td>
+        {data.left && (
+          <React.Fragment>
             <button
-              className="step-btn step-minus"
-              onClick={() => onRemoveYarn(index, pos)}
-              onMouseDown={() => handleDecrementMouseDown(index, pos)}
+              className="btn-action btn-minus"
+              onClick={() => onRemoveYarn(index, "left")}
+              onMouseDown={() => handleDecrementMouseDown(index, "left")}
               onMouseUp={handleMouseUp}
               onMouseLeave={handleMouseUp}
-              aria-label={`Decrease ${cell.yarn_color}`}
             >
-              −
+              -
             </button>
-            <span className={`step-value ${active ? "step-value-active" : ""}`}>
-              {cell.yarn_qty}
-            </span>
             <button
-              className="step-btn step-plus"
-              onClick={() => onAddYarn(index, pos)}
-              onMouseDown={() => handleIncrementMouseDown(index, pos)}
+              className="btn-action btn-plus"
+              onClick={() => onAddYarn(index, "left")}
+              onMouseDown={() => handleIncrementMouseDown(index, "left")}
               onMouseUp={handleMouseUp}
               onMouseLeave={handleMouseUp}
-              aria-label={`Increase ${cell.yarn_color}`}
             >
               +
             </button>
-          </div>
-        </td>
-      </>
-    );
-  };
-
-  return (
-    <tr>
-      {renderCell(data.left, "left")}
-      {renderCell(data.right, "right")}
+          </React.Fragment>
+        )}
+      </td>
+      <td className={data.right && RED_COLORS.includes(data.right.yarn_color) ? "text-red" : ""}>{data.right && data.right.yarn_color}</td>
+      <td>{data.right && data.right.yarn_qty}</td>
+      <td>
+        {data.right && (
+          <React.Fragment>
+            <button
+              className="btn-action btn-minus"
+              onClick={() => onRemoveYarn(index, "right")}
+              onMouseDown={() => handleDecrementMouseDown(index, "right")}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseUp}
+            >
+              -
+            </button>
+            <button
+              className="btn-action btn-plus"
+              onClick={() => onAddYarn(index, "right")}
+              onMouseDown={() => handleIncrementMouseDown(index, "right")}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseUp}
+            >
+              +
+            </button>
+          </React.Fragment>
+        )}
+      </td>
     </tr>
   );
 }

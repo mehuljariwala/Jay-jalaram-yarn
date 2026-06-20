@@ -72,11 +72,11 @@ export const createDefaultYarnList = () => [
     right: { uid: 34, yarn_color: "L MULTY", yarn_qty: 0 },
   },
   {
-    left: { uid: 18, yarn_color: "ONION", yarn_qty: 0 },
+    left: { uid: 18, yarn_color: "ONINEN", yarn_qty: 0 },
     right: { uid: 35, yarn_color: "RANI MULTY", yarn_qty: 0 },
   },
   {
-    left: null,
+    left: { uid: 41, yarn_color: "RAINBOW", yarn_qty: 0 },
     right: { uid: 36, yarn_color: "AK MULTY", yarn_qty: 0 },
   },
   {
@@ -94,6 +94,14 @@ export const createDefaultYarnList = () => [
   {
     left: null,
     right: { uid: 40, yarn_color: "PL RANI", yarn_qty: 0 },
+  },
+  {
+    left: null,
+    right: { uid: 42, yarn_color: "L PINK", yarn_qty: 0 },
+  },
+  {
+    left: null,
+    right: { uid: 43, yarn_color: "LIMBUDI", yarn_qty: 0 },
   },
 ];
 
